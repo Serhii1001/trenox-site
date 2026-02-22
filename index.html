@@ -1,59 +1,296 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Trenox — крипто комьюнити</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TREN0X — Crypto Community</title>
+  <meta name="description" content="Trenox Crypto Community — обзоры рынка, торговые идеи и сигналы. Перейти в Telegram." />
+  <meta name="theme-color" content="#0b0f19" />
+
+  <!-- Подключение стилей -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Шрифты (можно убрать, если не хочешь внешние подключения) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <!-- ====== TOP NAV ====== -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#">
+        <span class="brand__name">TREN0X</span>
+      </a>
 
-<header class="hero">
-  <div class="container">
-    <h1>Trenox Crypto Community</h1>
-    <p>
-      Обзоры рынка, торговые идеи и сигналы.
-      Реальное крипто-комьюнити без шума и воды.
-    </p>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <!-- 🔥 ЗАМЕНИ ССЫЛКУ НА СВОЙ ТГ -->
-    <a href="https://t.me/your_channel" class="btn btn-tg">
-      Перейти в Telegram
-    </a>
+      <nav class="nav" data-nav>
+        <a href="#inside">Что внутри</a>
+        <a href="#forwho">Для кого</a>
+        <a href="#why">Почему мы</a>
+        <a class="nav__cta" href="YOUR_TG_LINK" target="_blank" rel="noopener">Telegram</a>
+      </nav>
+    </div>
+  </header>
 
-    <span class="note">
-      Не инвестиционная рекомендация. Крипторынок связан с рисками.
-    </span>
-  </div>
-</header>
+  <!-- ====== HERO ====== -->
+  <main>
+    <section class="hero" id="top">
+      <!-- декоративные слои -->
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
 
-<section class="section">
-  <div class="container">
-    <h2>Что внутри комьюнити</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>📊 Обзоры рынка</h3>
-        <p>BTC, альты, ключевые уровни и сценарии.</p>
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <div class="badge">
+            <span class="dot"></span>
+            <span>Crypto • Аналитика • Комьюнити</span>
+          </div>
+
+          <h1>
+            Trenox<br />
+            <span class="grad">Crypto Community</span>
+          </h1>
+
+          <p class="hero__lead">
+            Обзоры рынка, торговые идеи и сигналы.
+            Реальное крипто-комьюнити без шума и воды.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn-telegram" href="YOUR_TG_LINK" target="_blank" rel="noopener">
+              <span class="btn__icon" aria-hidden="true">✈️</span>
+              <span>Перейти в Telegram</span>
+            </a>
+
+            <a class="btn btn-ghost" href="#inside">
+              Что внутри
+            </a>
+          </div>
+
+          <div class="hero__note">
+            Не инвестиционная рекомендация. Крипторынок связан с рисками.
+          </div>
+
+          <div class="trust reveal">
+            <div class="trust__item">
+              <div class="trust__num">24/7</div>
+              <div class="trust__txt">слежение за рынком</div>
+            </div>
+            <div class="trust__item">
+              <div class="trust__num">RR</div>
+              <div class="trust__txt">фокус на риск-менеджмент</div>
+            </div>
+            <div class="trust__item">
+              <div class="trust__num">TG</div>
+              <div class="trust__txt">удобный формат комьюнити</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- правая декоративная панель (как на мокапе) -->
+        <aside class="hero__panel reveal" aria-label="Инфо карточка">
+          <div class="panel">
+            <div class="panel__top">
+              <div class="panel__title">TREN0X</div>
+              <div class="panel__pill">Community</div>
+            </div>
+
+            <div class="panel__line"></div>
+
+            <div class="panel__rows">
+              <div class="panel__row">
+                <span class="panel__k">Формат</span>
+                <span class="panel__v">Telegram</span>
+              </div>
+              <div class="panel__row">
+                <span class="panel__k">Темы</span>
+                <span class="panel__v">BTC / ALTS / уровни</span>
+              </div>
+              <div class="panel__row">
+                <span class="panel__k">Цель</span>
+                <span class="panel__v">понятные идеи без воды</span>
+              </div>
+            </div>
+
+            <a class="panel__cta" href="YOUR_TG_LINK" target="_blank" rel="noopener">
+              ✈️ Войти в Telegram
+            </a>
+          </div>
+        </aside>
       </div>
-      <div class="card">
-        <h3>📈 Торговые сигналы</h3>
-        <p>Точки входа, цели и риск-менеджмент.</p>
+    </section>
+
+    <!-- ====== INSIDE ====== -->
+    <section class="section" id="inside">
+      <div class="container">
+        <h2 class="section__title reveal">Что внутри комьюнити</h2>
+        <p class="section__lead reveal">
+          Коротко и по делу: уровни, сценарии, идеи, разборы.
+          Всё в удобном формате Telegram.
+        </p>
+
+        <div class="grid">
+          <article class="card reveal">
+            <div class="card__icon">📊</div>
+            <h3>Обзоры рынка</h3>
+            <p>BTC, альты, ключевые уровни и сценарии. Что важно сейчас и почему.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon">🎯</div>
+            <h3>Торговые идеи</h3>
+            <p>Точки входа, цели и логика. Без “угадайки”, с пояснением сценария.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon">🛡️</div>
+            <h3>Риск-менеджмент</h3>
+            <p>RR, стопы, работа с волатильностью. Сохранить депозит важнее “иксов”.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon">🧠</div>
+            <h3>Комьюнити</h3>
+            <p>Вопросы/ответы, обсуждение уровней, обмен наблюдениями и опытом.</p>
+          </article>
+        </div>
+
+        <div class="cta reveal">
+          <div class="cta__box">
+            <div>
+              <h3>Готов присоединиться?</h3>
+              <p>Жми кнопку — попадёшь в Telegram и увидишь всё внутри.</p>
+            </div>
+            <a class="btn btn-telegram" href="YOUR_TG_LINK" target="_blank" rel="noopener">
+              <span class="btn__icon" aria-hidden="true">✈️</span>
+              <span>Перейти в Telegram</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h3>🧠 Комьюнити</h3>
-        <p>Обсуждение рынка и идей без токсичности.</p>
+    </section>
+
+    <!-- ====== FOR WHO ====== -->
+    <section class="section section--dark" id="forwho">
+      <div class="container">
+        <h2 class="section__title reveal">Кому подойдёт</h2>
+        <p class="section__lead reveal">
+          Новичкам, которые хотят структуру. Трейдерам, которые ценят уровни и дисциплину.
+          Тем, кто хочет быть в курсе рынка без лишнего шума.
+        </p>
+
+        <div class="grid grid--3">
+          <div class="mini reveal">
+            <div class="mini__t">Новичкам</div>
+            <div class="mini__p">Чтобы видеть логику рынка и учиться на примерах.</div>
+          </div>
+          <div class="mini reveal">
+            <div class="mini__t">Трейдерам</div>
+            <div class="mini__p">Чтобы получать уровни/сценарии и не теряться в хаосе.</div>
+          </div>
+          <div class="mini reveal">
+            <div class="mini__t">Инвесторам</div>
+            <div class="mini__p">Чтобы понимать контекст: где риск, где шанс, где ждать.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WHY ====== -->
+    <section class="section" id="why">
+      <div class="container">
+        <h2 class="section__title reveal">Почему Trenox</h2>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step__n">01</div>
+            <div class="step__t">Чёткая структура</div>
+            <div class="step__p">Не “прогнозы ради прогнозов”, а сценарии и уровни.</div>
+          </div>
+
+          <div class="step reveal">
+            <div class="step__n">02</div>
+            <div class="step__t">Фокус на риске</div>
+            <div class="step__p">Стопы, RR, контекст. Сначала защита, потом прибыль.</div>
+          </div>
+
+          <div class="step reveal">
+            <div class="step__n">03</div>
+            <div class="step__t">Удобно в Telegram</div>
+            <div class="step__p">Быстро, понятно, всегда под рукой — и на мобиле тоже.</div>
+          </div>
+        </div>
+
+        <div class="final reveal">
+          <a class="btn btn-telegram btn-big" href="YOUR_TG_LINK" target="_blank" rel="noopener">
+            <span class="btn__icon" aria-hidden="true">✈️</span>
+            <span>Войти в Telegram-комьюнити</span>
+          </a>
+          <div class="final__note">
+            Мы не гарантируем прибыль. Любые решения — на твою ответственность.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <div class="footer__brand">TREN0X</div>
+        <div class="footer__txt">
+          Информация на сайте носит ознакомительный характер и не является инвестиционной рекомендацией.
+          Торговля криптовалютами связана с риском.
+        </div>
+      </div>
+
+      <div class="footer__right">
+        <a href="#top">Наверх ↑</a>
+        <a href="YOUR_TG_LINK" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<footer class="footer">
-  <div class="container">
-    <p>
-      © Trenox. Вся информация носит ознакомительный характер.
-    </p>
-  </div>
-</footer>
+  <!-- ====== JS: Mobile menu + reveal animations ====== -->
+  <script>
+    // Mobile menu
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector("[data-nav]");
 
+    burger?.addEventListener("click", () => {
+      const open = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!open));
+      document.body.classList.toggle("menu-open");
+    });
+
+    // Close menu on link click
+    nav?.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        document.body.classList.remove("menu-open");
+        burger?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Reveal on scroll
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    els.forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
