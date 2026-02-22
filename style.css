@@ -128,7 +128,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   inset: 0;
   background:
     linear-gradient(90deg, rgba(5, 8, 18, 0.88) 0%, rgba(5, 8, 18, 0.72) 38%, rgba(5, 8, 18, 0.42) 60%, rgba(5, 8, 18, 0.25) 100%),
-    url("assets/img/hero/hero-main.png") 65% center / cover no-repeat;
+    url("/assets/img/hero/hero-main.png") 65% center / cover no-repeat;
   filter: saturate(1.05) contrast(1.05) brightness(0.9);
   transform: scale(1.03);
   z-index: 0;
