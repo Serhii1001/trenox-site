@@ -155,7 +155,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   background:
     radial-gradient(circle at 18% 22%, rgba(100, 140, 255, 0.30), transparent 58%),
     radial-gradient(circle at 82% 38%, rgba(0, 255, 180, 0.16), transparent 58%),
-    linear-gradient(180deg, rgba(5, 8, 18, 0.55), rgba(5, 8, 18, 0.85));
+    linear-gradient(180deg, rgba(5, 8, 18, 0.45), rgba(5, 8, 18, 0.78));
 }
 
 /* Animated grid overlay (CSS) */
@@ -564,7 +564,8 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
     opacity: 0;
     pointer-events: none;
     transition: .2s ease;
-  /* --- Mobile: фон по центру и чуть ярче --- */
+  }
+     /* --- Mobile: фон по центру и чуть ярче --- */
   .hero__bg {
     background:
       linear-gradient(180deg,
