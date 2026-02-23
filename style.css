@@ -126,11 +126,23 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 .hero__bg {
   position: absolute;
   inset: 0;
+
+  /* 1) делаем позицию по центру, чтобы не "косило" */
   background:
-    linear-gradient(90deg, rgba(5, 8, 18, 0.88) 0%, rgba(5, 8, 18, 0.72) 38%, rgba(5, 8, 18, 0.42) 60%, rgba(5, 8, 18, 0.25) 100%),
-    url("/assets/img/hero/hero-main.png") 65% center / cover no-repeat;
-  filter: saturate(1.05) contrast(1.05) brightness(0.9);
-  transform: scale(1.03);
+    linear-gradient(90deg,
+      rgba(5, 8, 18, 0.75) 0%,
+      rgba(5, 8, 18, 0.55) 42%,
+      rgba(5, 8, 18, 0.35) 65%,
+      rgba(5, 8, 18, 0.22) 100%
+    ),
+    url("assets/img/hero/hero-main.png") center center / cover no-repeat;
+
+  /* 2) делаем ярче и сочнее */
+  filter: saturate(1.18) contrast(1.10) brightness(1.08);
+
+  /* 3) убираем лишнее "съедание" кадра */
+  transform: none;
+
   z-index: 0;
 }
 
@@ -141,9 +153,9 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(circle at 15% 20%, rgba(100, 140, 255, 0.22), transparent 55%),
-    radial-gradient(circle at 85% 35%, rgba(0, 255, 180, 0.12), transparent 55%),
-    linear-gradient(180deg, rgba(5, 8, 18, 0.70), rgba(5, 8, 18, 0.95));
+    radial-gradient(circle at 18% 22%, rgba(100, 140, 255, 0.30), transparent 58%),
+    radial-gradient(circle at 82% 38%, rgba(0, 255, 180, 0.16), transparent 58%),
+    linear-gradient(180deg, rgba(5, 8, 18, 0.55), rgba(5, 8, 18, 0.85));
 }
 
 /* Animated grid overlay (CSS) */
@@ -552,6 +564,17 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
     opacity: 0;
     pointer-events: none;
     transition: .2s ease;
+  /* --- Mobile: фон по центру и чуть ярче --- */
+  .hero__bg {
+    background:
+      linear-gradient(180deg,
+        rgba(5, 8, 18, 0.62) 0%,
+        rgba(5, 8, 18, 0.78) 70%,
+        rgba(5, 8, 18, 0.90) 100%
+      ),
+      url("assets/img/hero/hero-main.png") center top / cover no-repeat;
+
+    filter: saturate(1.22) contrast(1.12) brightness(1.12);
   }
   .nav a {
     padding: 12px 12px;
