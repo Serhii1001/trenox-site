@@ -123,26 +123,19 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 }
 
 /* Background image */
-.hero__bg {
+.hero__bg{
   position: absolute;
   inset: 0;
 
-  /* слой затемнения (слева направо) */
-  background-image:
-    linear-gradient(90deg,
-      rgba(5, 8, 18, 0.75) 0%,
-      rgba(5, 8, 18, 0.55) 42%,
-      rgba(5, 8, 18, 0.35) 65%,
-      rgba(5, 8, 18, 0.22) 100%
-    ),
-    url("assets/img/hero/hero-main.png");
+  /* только картинка */
+  background-image: url("assets/img/hero/hero-main.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  background-repeat: no-repeat, no-repeat;
-  background-size: cover, cover;
+  /* ПК: опускаем вниз (биткоин ниже) */
+  background-position: center 62%;
 
-  /* ПК: опускаем вниз */
-  background-position: center center, center 62%;
-
+  /* яркость/контраст */
   filter: saturate(1.18) contrast(1.10) brightness(1.08);
   transform: none;
   z-index: 0;
@@ -567,24 +560,15 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
     pointer-events: none;
     transition: .2s ease;
   }
-     /* --- Mobile: фон по центру и чуть ярче --- */
-  .hero__bg {
-    background-image:
-      linear-gradient(180deg,
-        rgba(5, 8, 18, 0.62) 0%,
-        rgba(5, 8, 18, 0.78) 70%,
-        rgba(5, 8, 18, 0.90) 100%
-      ),
-      url("assets/img/hero/hero-main.png");
 
-    background-repeat: no-repeat, no-repeat;
-    background-size: cover, cover;
-
+     .hero__bg{
     /* МОБ: поднимаем вверх */
-    background-position: center center, center 20%;
+    background-position: center 18% !important;
 
-    filter: saturate(1.22) contrast(1.12) brightness(1.12);
+    /* делаем чуть ярче на телефоне */
+    filter: saturate(1.22) contrast(1.12) brightness(1.16) !important;
   }
+     /* --- Mobile: фон по центру и чуть ярче --- */
   .nav a {
     padding: 12px 12px;
     border-radius: 14px;
