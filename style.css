@@ -549,48 +549,34 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 }
 
 @media (max-width: 760px) {
-  .hero__bg {
-    background-image:
-      linear-gradient(180deg,
-        rgba(5, 8, 18, 0.62) 0%,
-        rgba(5, 8, 18, 0.78) 70%,
-        rgba(5, 8, 18, 0.90) 100%
-      ),
-      url("assets/img/hero/hero-main.png");
-
-    background-repeat: no-repeat, no-repeat;
-
-    /* градиент как был, а картинку делаем чуть больше */
-    background-size: cover, 118% auto;
-
-    /* градиент по центру, картинку поднимаем */
-    background-position: center, center 5%;
-
-    filter: saturate(1.22) contrast(1.12) brightness(1.12);
+  .burger { display: inline-flex; }
+  .nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    padding: 14px;
+    background: rgba(11, 15, 25, 0.92);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: grid;
+    gap: 10px;
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s ease;
   }
-}
      /* --- Mobile: фон по центру и чуть ярче --- */
-@media (max-width: 760px) {
   .hero__bg {
-    background-image:
+    background:
       linear-gradient(180deg,
         rgba(5, 8, 18, 0.62) 0%,
         rgba(5, 8, 18, 0.78) 70%,
         rgba(5, 8, 18, 0.90) 100%
       ),
-      url("assets/img/hero/hero-main.png");
-
-    background-repeat: no-repeat, no-repeat;
-
-    /* ВАЖНО: увеличили картинку по высоте -> появился запас для смещения */
-    background-size: cover, auto 125%;
-
-    /* Градиент по центру, картинку двигаем вверх */
-    background-position: center, center -35px;
+      url("assets/img/hero/hero-main.png") center 35% / cover no-repeat;
 
     filter: saturate(1.22) contrast(1.12) brightness(1.12);
   }
-}
   .nav a {
     padding: 12px 12px;
     border-radius: 14px;
