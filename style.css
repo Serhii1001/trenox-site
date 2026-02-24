@@ -556,7 +556,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
         rgba(5, 8, 18, 0.78) 70%,
         rgba(5, 8, 18, 0.90) 100%
       ),
-      url("assets/img/hero/hero-main-mob.png");
+      url("assets/img/hero/hero-main.png");
 
     background-repeat: no-repeat, no-repeat;
 
@@ -570,17 +570,27 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   }
 }
      /* --- Mobile: фон по центру и чуть ярче --- */
+@media (max-width: 760px) {
   .hero__bg {
-    background:
+    background-image:
       linear-gradient(180deg,
         rgba(5, 8, 18, 0.62) 0%,
         rgba(5, 8, 18, 0.78) 70%,
         rgba(5, 8, 18, 0.90) 100%
       ),
-      url("assets/img/hero/hero-main-mob.png") center 10% / cover no-repeat;
+      url("assets/img/hero/hero-main.png");
+
+    background-repeat: no-repeat, no-repeat;
+
+    /* ВАЖНО: увеличили картинку по высоте -> появился запас для смещения */
+    background-size: cover, auto 125%;
+
+    /* Градиент по центру, картинку двигаем вверх */
+    background-position: center, center -35px;
 
     filter: saturate(1.22) contrast(1.12) brightness(1.12);
   }
+}
   .nav a {
     padding: 12px 12px;
     border-radius: 14px;
