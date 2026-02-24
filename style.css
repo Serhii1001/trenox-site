@@ -556,7 +556,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
         rgba(5, 8, 18, 0.78) 70%,
         rgba(5, 8, 18, 0.90) 100%
       ),
-      url("assets/img/hero/hero-main.png");
+      url("assets/img/hero/hero-main-mob.png");
 
     background-repeat: no-repeat, no-repeat;
 
@@ -577,7 +577,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
         rgba(5, 8, 18, 0.78) 70%,
         rgba(5, 8, 18, 0.90) 100%
       ),
-      url("assets/img/hero/hero-main.png") center 10% / cover no-repeat;
+      url("assets/img/hero/hero-main-mob.png") center 10% / cover no-repeat;
 
     filter: saturate(1.22) contrast(1.12) brightness(1.12);
   }
