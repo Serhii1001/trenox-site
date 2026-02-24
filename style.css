@@ -135,7 +135,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
       rgba(5, 8, 18, 0.35) 65%,
       rgba(5, 8, 18, 0.22) 100%
     ),
-    url("assets/img/hero/hero-main.png") center 10% / cover no-repeat;
+    url("assets/img/hero/hero-main.png") center 25% / cover no-repeat;
 
   /* 2) делаем ярче и сочнее */
   filter: saturate(1.18) contrast(1.10) brightness(1.08);
@@ -573,7 +573,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
         rgba(5, 8, 18, 0.78) 70%,
         rgba(5, 8, 18, 0.90) 100%
       ),
-      url("assets/img/hero/hero-main.png") center 35% / cover no-repeat;
+      url("assets/img/hero/hero-main.png") center 10% / cover no-repeat;
 
     filter: saturate(1.22) contrast(1.12) brightness(1.12);
   }
