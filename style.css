@@ -123,21 +123,26 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 }
 
 /* Background image */
-.hero__bg{
+.hero__bg {
   position: absolute;
   inset: 0;
 
-  /* только картинка */
-  background-image: url("assets/img/hero/hero-main.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* 1) делаем позицию по центру, чтобы не "косило" */
+  background:
+    linear-gradient(90deg,
+      rgba(5, 8, 18, 0.75) 0%,
+      rgba(5, 8, 18, 0.55) 42%,
+      rgba(5, 8, 18, 0.35) 65%,
+      rgba(5, 8, 18, 0.22) 100%
+    ),
+    url("assets/img/hero/hero-main.png") center 25% / cover no-repeat;
 
-  /* ПК: опускаем вниз (биткоин ниже) */
-  background-position: center 62%;
-
-  /* яркость/контраст */
+  /* 2) делаем ярче и сочнее */
   filter: saturate(1.18) contrast(1.10) brightness(1.08);
+
+  /* 3) убираем лишнее "съедание" кадра */
   transform: none;
+
   z-index: 0;
 }
 
@@ -150,7 +155,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   background:
     radial-gradient(circle at 18% 22%, rgba(100, 140, 255, 0.30), transparent 58%),
     radial-gradient(circle at 82% 38%, rgba(0, 255, 180, 0.16), transparent 58%),
-    linear-gradient(180deg, rgba(5, 8, 18, 0.30), rgba(5, 8, 18, 0.72));
+    linear-gradient(180deg, rgba(5, 8, 18, 0.45), rgba(5, 8, 18, 0.78));
 }
 
 /* Animated grid overlay (CSS) */
@@ -560,15 +565,18 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
     pointer-events: none;
     transition: .2s ease;
   }
-
-     .hero__bg{
-    /* МОБ: поднимаем вверх */
-    background-position: center 18% !important;
-
-    /* делаем чуть ярче на телефоне */
-    filter: saturate(1.22) contrast(1.12) brightness(1.16) !important;
-  }
      /* --- Mobile: фон по центру и чуть ярче --- */
+  .hero__bg {
+    background:
+      linear-gradient(180deg,
+        rgba(5, 8, 18, 0.62) 0%,
+        rgba(5, 8, 18, 0.78) 70%,
+        rgba(5, 8, 18, 0.90) 100%
+      ),
+      url("assets/img/hero/hero-main.png") center 35% / cover no-repeat;
+
+    filter: saturate(1.22) contrast(1.12) brightness(1.12);
+  }
   .nav a {
     padding: 12px 12px;
     border-radius: 14px;
