@@ -187,7 +187,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   transform: perspective(800px) rotateX(58deg) translateY(120px);
   transform-origin: top;
   animation: gridMove 10s linear infinite;
-  -webkit-mask-image: radial-gradient(circle at 50% 45%, rgba(0,0,0,1), rgba(0,0,0,0.18));
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1), rgba(0,0,0,0));
   mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 @keyframes gridMove {
@@ -508,7 +508,10 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   background-position: center 42%;
   filter: saturate(1.10) contrast(1.08) brightness(0.70);
 }
-
+#inside {
+  margin-top: -10px;
+  padding-top: 82px;
+}
 .section__bg--forwho {
   background-image: url("assets/img/sections/forwho-bg.png");
   background-position: center 44%;
