@@ -157,7 +157,23 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
     radial-gradient(circle at 82% 38%, rgba(0, 255, 180, 0.16), transparent 58%),
     linear-gradient(180deg, rgba(5, 8, 18, 0.45), rgba(5, 8, 18, 0.78));
 }
-
+/* Плавное затухание hero вниз (скрывает стык с первой секцией) */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 110px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 15, 25, 0.00) 0%,
+    rgba(11, 15, 25, 0.45) 55%,
+    rgba(11, 15, 25, 0.88) 100%
+  );
+}
 /* Animated grid overlay (CSS) */
 .hero__grid {
   position: absolute;
@@ -171,6 +187,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   transform: perspective(800px) rotateX(58deg) translateY(120px);
   transform-origin: top;
   animation: gridMove 10s linear infinite;
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, rgba(0,0,0,1), rgba(0,0,0,0.18));
   mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 @keyframes gridMove {
@@ -389,22 +406,64 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   position: relative;
   z-index: 2; /* контент поверх фонового слоя */
 }
-
-.section__bg {
+/* ===== Мягкие переходы между секциями ===== */
+.section::before,
+.section::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  left: 0;
+  right: 0;
+  height: 88px;
   pointer-events: none;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-
-  /* базовая обработка картинки */
-  filter: saturate(1.08) contrast(1.06) brightness(0.72);
-  transform: scale(1.03);
-  opacity: 0.95;
+  z-index: 1; /* выше фона, ниже контента */
 }
+
+.section::before {
+  top: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(11, 15, 25, 0.78),
+      rgba(11, 15, 25, 0.30) 45%,
+      rgba(11, 15, 25, 0.00)
+    );
+}
+
+.section::after {
+  bottom: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(11, 15, 25, 0.82),
+      rgba(11, 15, 25, 0.32) 45%,
+      rgba(11, 15, 25, 0.00)
+    );
+}
+  .section__bg {
+    inset: -28px 0;
+    transform: scale(1.07);
+    filter: saturate(1.06) contrast(1.04) brightness(0.50);
+    opacity: 0.92;
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.95) 12%,
+      rgba(0,0,0,1) 22%,
+      rgba(0,0,0,1) 78%,
+      rgba(0,0,0,0.95) 88%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.95) 12%,
+      rgba(0,0,0,1) 22%,
+      rgba(0,0,0,1) 78%,
+      rgba(0,0,0,0.95) 88%,
+      transparent 100%
+    );
+  }
 
 /* Затемняющий и "киношный" оверлей поверх фоновой картинки */
 .section__bg::before {
@@ -462,19 +521,17 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 }
 
 /* Немного затемним стеклянные карточки, чтобы не терялись на ярких фонах */
-#inside .card,
-#inside .cta__box,
-#forwho .mini,
-#why .step,
-#why .final {
-  background: rgba(8, 12, 22, 0.62);
-  border-color: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-}
+  #inside .card,
+  #inside .cta__box,
+  #forwho .mini,
+  #why .step {
+    background: rgba(7, 10, 18, 0.70);
+    border-color: rgba(255,255,255,0.14);
+  }
 .section--dark {
-  background: rgba(7, 10, 18, 0.18);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(7, 10, 18, 0.08);
+  border-top: none;
+  border-bottom: none;
 }
 .section__title {
   font-size: clamp(26px, 3.2vw, 38px);
@@ -706,10 +763,10 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   #inside .card,
   #inside .cta__box,
   #forwho .mini,
-  #why .step,
-  #why .final {
-    background: rgba(7, 10, 18, 0.70);
-    border-color: rgba(255,255,255,0.14);
+  #why .step {
+    background: rgba(8, 12, 22, 0.62);
+    border-color: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
   }
   .nav a {
     padding: 12px 12px;
