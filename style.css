@@ -381,9 +381,98 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   position: relative;
   z-index: 2;
   padding: 72px 0;
+  overflow: hidden;     /* чтобы фон не вылезал */
+  isolation: isolate;   /* отдельный слой для фона/контента */
+}
+/* ===== ФОНЫ СЕКЦИЙ (inside / forwho / why) ===== */
+.section > .container {
+  position: relative;
+  z-index: 2; /* контент поверх фонового слоя */
+}
+
+.section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  /* базовая обработка картинки */
+  filter: saturate(1.08) contrast(1.06) brightness(0.72);
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* Затемняющий и "киношный" оверлей поверх фоновой картинки */
+.section__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(90, 130, 255, 0.18), transparent 52%),
+    radial-gradient(circle at 82% 24%, rgba(0, 220, 255, 0.10), transparent 52%),
+    radial-gradient(circle at 72% 76%, rgba(255, 170, 60, 0.10), transparent 58%),
+    linear-gradient(180deg, rgba(6, 9, 18, 0.46), rgba(6, 9, 18, 0.72));
+}
+
+/* Лёгкая сетка/HUD сверху — помогает связать стиль с hero */
+.section__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.10) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at 50% 45%, rgba(0,0,0,1), rgba(0,0,0,0.18));
+}
+
+/* Конкретные картинки по секциям */
+.section__bg--inside {
+  background-image: url("assets/img/sections/inside-bg.png");
+  background-position: center 42%;
+  filter: saturate(1.10) contrast(1.08) brightness(0.70);
+}
+
+.section__bg--forwho {
+  background-image: url("assets/img/sections/forwho-bg.png");
+  background-position: center 44%;
+  filter: saturate(1.10) contrast(1.06) brightness(0.64);
+  opacity: 0.92;
+}
+
+.section__bg--why {
+  background-image: url("assets/img/sections/why-bg.png");
+  background-position: center 48%;
+  filter: saturate(1.16) contrast(1.08) brightness(0.60);
+  opacity: 0.94;
+}
+
+/* Чуть усилим читабельность текста на фоне */
+#inside .section__title,
+#inside .section__lead,
+#forwho .section__title,
+#forwho .section__lead,
+#why .section__title {
+  text-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+/* Немного затемним стеклянные карточки, чтобы не терялись на ярких фонах */
+#inside .card,
+#inside .cta__box,
+#forwho .mini,
+#why .step,
+#why .final {
+  background: rgba(8, 12, 22, 0.62);
+  border-color: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
 }
 .section--dark {
-  background: rgba(255,255,255,0.02);
+  background: rgba(7, 10, 18, 0.18);
   border-top: 1px solid rgba(255,255,255,0.06);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
@@ -576,6 +665,51 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
       url("assets/img/hero/hero-main.png") center 35% / cover no-repeat;
 
     filter: saturate(1.22) contrast(1.12) brightness(1.12);
+  }
+     /* --- Mobile: фоны секций (усиливаем читаемость текста) --- */
+  .section {
+    padding: 56px 0;
+  }
+
+  .section__bg {
+    transform: scale(1.07);
+    filter: saturate(1.06) contrast(1.04) brightness(0.50);
+    opacity: 0.92;
+  }
+
+  .section__bg::before {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(90, 130, 255, 0.14), transparent 48%),
+      radial-gradient(circle at 78% 22%, rgba(0, 220, 255, 0.08), transparent 50%),
+      linear-gradient(180deg, rgba(6, 9, 18, 0.62), rgba(6, 9, 18, 0.84));
+  }
+
+  .section__bg::after {
+    opacity: 0.08;
+    background-size: 42px 42px;
+  }
+
+  /* Позиции кадра на мобиле (важно для красивого обрезания) */
+  .section__bg--inside {
+    background-position: center 40%;
+  }
+
+  .section__bg--forwho {
+    background-position: center 38%;
+  }
+
+  .section__bg--why {
+    background-position: center 46%;
+  }
+
+  /* Карточки чуть плотнее на фоне */
+  #inside .card,
+  #inside .cta__box,
+  #forwho .mini,
+  #why .step,
+  #why .final {
+    background: rgba(7, 10, 18, 0.70);
+    border-color: rgba(255,255,255,0.14);
   }
   .nav a {
     padding: 12px 12px;
