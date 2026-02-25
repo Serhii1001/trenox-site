@@ -439,31 +439,42 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
       rgba(11, 15, 25, 0.00)
     );
 }
-  .section__bg {
-    inset: -28px 0;
-    transform: scale(1.07);
-    filter: saturate(1.06) contrast(1.04) brightness(0.50);
-    opacity: 0.92;
+.section__bg {
+  position: absolute;
 
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0,0,0,0.95) 12%,
-      rgba(0,0,0,1) 22%,
-      rgba(0,0,0,1) 78%,
-      rgba(0,0,0,0.95) 88%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0,0,0,0.95) 12%,
-      rgba(0,0,0,1) 22%,
-      rgba(0,0,0,1) 78%,
-      rgba(0,0,0,0.95) 88%,
-      transparent 100%
-    );
-  }
+  /* Фон выходит за пределы секции, чтобы скрыть стыки */
+  inset: -42px 0;
+
+  z-index: 0;
+  pointer-events: none;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  filter: saturate(1.08) contrast(1.06) brightness(0.72);
+  transform: scale(1.03);
+  opacity: 0.95;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,0.92) 10%,
+    rgba(0,0,0,1) 20%,
+    rgba(0,0,0,1) 80%,
+    rgba(0,0,0,0.92) 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,0.92) 10%,
+    rgba(0,0,0,1) 20%,
+    rgba(0,0,0,1) 80%,
+    rgba(0,0,0,0.92) 90%,
+    transparent 100%
+  );
+}
 
 /* Затемняющий и "киношный" оверлей поверх фоновой картинки */
 .section__bg::before {
@@ -487,7 +498,8 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
     linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.10) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: radial-gradient(circle at 50% 45%, rgba(0,0,0,1), rgba(0,0,0,0.18));
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1), rgba(0,0,0,0));
+  mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
 /* Конкретные картинки по секциям */
@@ -521,13 +533,14 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 }
 
 /* Немного затемним стеклянные карточки, чтобы не терялись на ярких фонах */
-  #inside .card,
-  #inside .cta__box,
-  #forwho .mini,
-  #why .step {
-    background: rgba(7, 10, 18, 0.70);
-    border-color: rgba(255,255,255,0.14);
-  }
+#inside .card,
+#inside .cta__box,
+#forwho .mini,
+#why .step {
+  background: rgba(8, 12, 22, 0.62);
+  border-color: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+}
 .section--dark {
   background: rgba(7, 10, 18, 0.08);
   border-top: none;
@@ -723,15 +736,47 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 
     filter: saturate(1.22) contrast(1.12) brightness(1.12);
   }
+     .hero::after {
+    height: 72px;
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 15, 25, 0.00) 0%,
+      rgba(11, 15, 25, 0.55) 52%,
+      rgba(11, 15, 25, 0.92) 100%
+    );
+  }
      /* --- Mobile: фоны секций (усиливаем читаемость текста) --- */
   .section {
     padding: 56px 0;
   }
-
+  .section::before,
+  .section::after {
+    height: 64px;
+  }
   .section__bg {
+    inset: -28px 0;
     transform: scale(1.07);
     filter: saturate(1.06) contrast(1.04) brightness(0.50);
     opacity: 0.92;
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.95) 12%,
+      rgba(0,0,0,1) 22%,
+      rgba(0,0,0,1) 78%,
+      rgba(0,0,0,0.95) 88%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.95) 12%,
+      rgba(0,0,0,1) 22%,
+      rgba(0,0,0,1) 78%,
+      rgba(0,0,0,0.95) 88%,
+      transparent 100%
+    );
   }
 
   .section__bg::before {
