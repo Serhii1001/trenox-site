@@ -30,6 +30,46 @@ body::before {
   opacity: 0.06;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
 }
+/* Общий крипто-слой поверх всех секций — объединяет сайт визуально */
+main {
+  position: relative;
+  isolation: isolate;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 14% 12%, rgba(0, 220, 255, 0.12), transparent 62%),
+    radial-gradient(950px 560px at 86% 18%, rgba(0, 255, 170, 0.10), transparent 64%),
+    radial-gradient(1200px 700px at 50% 80%, rgba(255, 191, 0, 0.07), transparent 74%);
+}
+
+/* Поверх — тонкие диагональные линии как "рыночный поток" */
+main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.10;
+  background-image:
+    repeating-linear-gradient(
+      -18deg,
+      transparent 0 26px,
+      rgba(120, 220, 255, 0.10) 26px 27px,
+      transparent 27px 52px
+    );
+  animation: marketFlow 24s linear infinite;
+}
+
+@keyframes marketFlow {
+  0%   { background-position: 0 0; }
+  100% { background-position: 420px 160px; }
+}
 /* ===== Общая цветовая атмосфера на весь сайт (связывает секции в одно полотно) ===== */
 main {
   position: relative;
@@ -211,7 +251,23 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   0% { background-position: 0 0, 0 0; }
   100% { background-position: 0 260px, 260px 0; }
 }
+@keyframes seamPulseTop {
+  0%   { background-position: 0 0, 0% 0, 0% 0; opacity: 0.95; }
+  50%  { background-position: 0 0, 100% 0, 35% 0; opacity: 1; }
+  100% { background-position: 0 0, 200% 0, 70% 0; opacity: 0.95; }
+}
 
+@keyframes seamPulseBottom {
+  0%   { background-position: 0 0, 200% 0, 60% 0; opacity: 0.95; }
+  50%  { background-position: 0 0, 100% 0, 30% 0; opacity: 1; }
+  100% { background-position: 0 0, 0% 0, 0% 0; opacity: 0.95; }
+}
+
+@keyframes seamGridDrift {
+  0%   { filter: saturate(1) brightness(1); }
+  50%  { filter: saturate(1.08) brightness(1.05); }
+  100% { filter: saturate(1) brightness(1); }
+}
 /* Glows */
 .hero__glow {
   position: absolute;
@@ -442,67 +498,109 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   position: absolute;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 130px;
   pointer-events: none;
   z-index: 1; /* выше фона, ниже контента */
+  overflow: hidden;
 }
 
+/* Верхний переход секции */
 .section::before {
   top: 0;
   background:
+    /* базовое мягкое затемнение */
     linear-gradient(
       to bottom,
-      rgba(11, 15, 25, 0.58) 0%,
-      rgba(11, 15, 25, 0.18) 46%,
+      rgba(11, 15, 25, 0.62) 0%,
+      rgba(11, 15, 25, 0.18) 44%,
       rgba(11, 15, 25, 0.00) 100%
+    ),
+    /* светящийся горизонтальный импульс */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 225, 255, 0.00) 18%,
+      rgba(0, 225, 255, 0.14) 36%,
+      rgba(88, 161, 255, 0.20) 50%,
+      rgba(0, 255, 170, 0.12) 64%,
+      rgba(0, 225, 255, 0.00) 82%,
+      transparent 100%
+    ),
+    /* тонкая HUD-сетка */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.00) 0 22px,
+      rgba(120, 220, 255, 0.06) 22px 23px,
+      rgba(255,255,255,0.00) 23px 46px
     );
+  background-size:
+    100% 100%,
+    220% 100%,
+    180% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  animation: seamPulseTop 8s ease-in-out infinite, seamGridDrift 16s linear infinite;
 }
 
+/* Нижний переход секции */
 .section::after {
   bottom: 0;
   background:
+    /* базовое мягкое затемнение */
     linear-gradient(
       to top,
-      rgba(11, 15, 25, 0.62) 0%,
-      rgba(11, 15, 25, 0.20) 46%,
+      rgba(11, 15, 25, 0.66) 0%,
+      rgba(11, 15, 25, 0.20) 44%,
       rgba(11, 15, 25, 0.00) 100%
+    ),
+    /* светящийся горизонтальный импульс */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 225, 255, 0.00) 16%,
+      rgba(0, 225, 255, 0.10) 34%,
+      rgba(255, 191, 0, 0.14) 50%,
+      rgba(88, 161, 255, 0.16) 66%,
+      rgba(0, 225, 255, 0.00) 84%,
+      transparent 100%
+    ),
+    /* тонкая HUD-сетка */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.00) 0 24px,
+      rgba(120, 220, 255, 0.05) 24px 25px,
+      rgba(255,255,255,0.00) 25px 48px
     );
+  background-size:
+    100% 100%,
+    240% 100%,
+    200% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  animation: seamPulseBottom 9s ease-in-out infinite, seamGridDrift 18s linear infinite reverse;
 }
-.section__bg {
-  position: absolute;
 
-  /* Фон выходит за пределы секции, чтобы скрыть стыки */
-  inset: -42px 0;
+/* Дополнительный крипто-слой на переходах: линии как график/канал */
+.section::before,
+.section::after {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 86%, transparent 100%);
+}
 
-  z-index: 0;
-  pointer-events: none;
+.section::before {
+  box-shadow:
+    inset 0 18px 45px rgba(0, 170, 255, 0.05),
+    inset 0 -20px 45px rgba(0, 255, 170, 0.03);
+}
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-
-  filter: saturate(1.08) contrast(1.06) brightness(0.72);
-  transform: scale(1.03);
-  opacity: 0.95;
-
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0,0,0,0.92) 10%,
-    rgba(0,0,0,1) 20%,
-    rgba(0,0,0,1) 80%,
-    rgba(0,0,0,0.92) 90%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0,0,0,0.92) 10%,
-    rgba(0,0,0,1) 20%,
-    rgba(0,0,0,1) 80%,
-    rgba(0,0,0,0.92) 90%,
-    transparent 100%
-  );
+.section::after {
+  box-shadow:
+    inset 0 18px 45px rgba(255, 191, 0, 0.04),
+    inset 0 -20px 45px rgba(0, 170, 255, 0.05);
 }
 
 /* Затемняющий и "киношный" оверлей поверх фоновой картинки */
