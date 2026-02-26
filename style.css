@@ -30,63 +30,7 @@ body::before {
   opacity: 0.06;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
 }
-/* Общий крипто-слой поверх всех секций — объединяет сайт визуально */
-main {
-  position: relative;
-  isolation: isolate;
-}
 
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(900px 520px at 14% 12%, rgba(0, 220, 255, 0.12), transparent 62%),
-    radial-gradient(950px 560px at 86% 18%, rgba(0, 255, 170, 0.10), transparent 64%),
-    radial-gradient(1200px 700px at 50% 80%, rgba(255, 191, 0, 0.07), transparent 74%);
-}
-
-/* Поверх — тонкие диагональные линии как "рыночный поток" */
-main::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.10;
-  background-image:
-    repeating-linear-gradient(
-      -18deg,
-      transparent 0 26px,
-      rgba(120, 220, 255, 0.10) 26px 27px,
-      transparent 27px 52px
-    );
-  animation: marketFlow 24s linear infinite;
-}
-
-@keyframes marketFlow {
-  0%   { background-position: 0 0; }
-  100% { background-position: 420px 160px; }
-}
-/* ===== Общая цветовая атмосфера на весь сайт (связывает секции в одно полотно) ===== */
-main {
-  position: relative;
-  isolation: isolate;
-}
-
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(900px 520px at 15% 10%, rgba(0, 210, 255, 0.14), transparent 62%),
-    radial-gradient(900px 520px at 86% 18%, rgba(0, 255, 163, 0.12), transparent 64%),
-    radial-gradient(1100px 680px at 50% 72%, rgba(255, 191, 0, 0.08), transparent 72%);
-}
 /* =========================
    TOP BAR
    ========================= */
@@ -194,7 +138,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
     url("assets/img/hero/hero-main.png") center 25% / cover no-repeat;
 
   /* 2) делаем ярче и сочнее */
-  filter: saturate(1.30) contrast(1.14) brightness(1.16);
+  filter: saturate(1.18) contrast(1.10) brightness(1.08);
 
   /* 3) убираем лишнее "съедание" кадра */
   transform: none;
@@ -209,10 +153,9 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(circle at 18% 22%, rgba(100, 160, 255, 0.22), transparent 58%),
-    radial-gradient(circle at 82% 38%, rgba(0, 255, 180, 0.14), transparent 58%),
-    radial-gradient(circle at 72% 22%, rgba(255, 195, 70, 0.10), transparent 54%),
-    linear-gradient(180deg, rgba(5, 8, 18, 0.22), rgba(5, 8, 18, 0.56));
+    radial-gradient(circle at 18% 22%, rgba(100, 140, 255, 0.30), transparent 58%),
+    radial-gradient(circle at 82% 38%, rgba(0, 255, 180, 0.16), transparent 58%),
+    linear-gradient(180deg, rgba(5, 8, 18, 0.45), rgba(5, 8, 18, 0.78));
 }
 /* Плавное затухание hero вниз (скрывает стык с первой секцией) */
 .hero::after {
@@ -221,14 +164,14 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 132px;
+  height: 110px;
   z-index: 2;
   pointer-events: none;
   background: linear-gradient(
     to bottom,
     rgba(11, 15, 25, 0.00) 0%,
-    rgba(11, 15, 25, 0.24) 46%,
-    rgba(11, 15, 25, 0.62) 100%
+    rgba(11, 15, 25, 0.45) 55%,
+    rgba(11, 15, 25, 0.88) 100%
   );
 }
 /* Animated grid overlay (CSS) */
@@ -251,23 +194,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   0% { background-position: 0 0, 0 0; }
   100% { background-position: 0 260px, 260px 0; }
 }
-@keyframes seamPulseTop {
-  0%   { background-position: 0 0, 0% 0, 0% 0; opacity: 0.95; }
-  50%  { background-position: 0 0, 100% 0, 35% 0; opacity: 1; }
-  100% { background-position: 0 0, 200% 0, 70% 0; opacity: 0.95; }
-}
 
-@keyframes seamPulseBottom {
-  0%   { background-position: 0 0, 200% 0, 60% 0; opacity: 0.95; }
-  50%  { background-position: 0 0, 100% 0, 30% 0; opacity: 1; }
-  100% { background-position: 0 0, 0% 0, 0% 0; opacity: 0.95; }
-}
-
-@keyframes seamGridDrift {
-  0%   { filter: saturate(1) brightness(1); }
-  50%  { filter: saturate(1.08) brightness(1.05); }
-  100% { filter: saturate(1) brightness(1); }
-}
 /* Glows */
 .hero__glow {
   position: absolute;
@@ -361,19 +288,13 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   transition: transform .15s ease, filter .15s ease, background .15s ease, border-color .15s ease;
   user-select: none;
 }
-.btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.08);
-}
+.btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
 
 .btn-telegram {
-  background: linear-gradient(180deg, #37b8ff, #1f7fe0);
+  background: linear-gradient(180deg, #2aa8e9, #1e78c9);
   color: #fff;
-  box-shadow:
-    0 10px 30px rgba(34, 158, 217, 0.30),
-    0 0 0 1px rgba(255,255,255,0.08) inset,
-    0 0 22px rgba(0, 214, 255, 0.22);
-  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 10px 30px rgba(34, 158, 217, 0.22);
+  border-color: rgba(255,255,255,0.10);
 }
 .btn-telegram .btn__icon { font-size: 16px; }
 
@@ -485,12 +406,6 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   position: relative;
   z-index: 2; /* контент поверх фонового слоя */
 }
-/* Чтобы якоря не прятались под sticky topbar */
-#inside,
-#forwho,
-#why {
-  scroll-margin-top: 84px;
-}
 /* ===== Мягкие переходы между секциями ===== */
 .section::before,
 .section::after {
@@ -498,109 +413,67 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   position: absolute;
   left: 0;
   right: 0;
-  height: 130px;
+  height: 88px;
   pointer-events: none;
   z-index: 1; /* выше фона, ниже контента */
-  overflow: hidden;
 }
 
-/* Верхний переход секции */
 .section::before {
   top: 0;
   background:
-    /* базовое мягкое затемнение */
     linear-gradient(
       to bottom,
-      rgba(11, 15, 25, 0.62) 0%,
-      rgba(11, 15, 25, 0.18) 44%,
-      rgba(11, 15, 25, 0.00) 100%
-    ),
-    /* светящийся горизонтальный импульс */
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 225, 255, 0.00) 18%,
-      rgba(0, 225, 255, 0.14) 36%,
-      rgba(88, 161, 255, 0.20) 50%,
-      rgba(0, 255, 170, 0.12) 64%,
-      rgba(0, 225, 255, 0.00) 82%,
-      transparent 100%
-    ),
-    /* тонкая HUD-сетка */
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.00) 0 22px,
-      rgba(120, 220, 255, 0.06) 22px 23px,
-      rgba(255,255,255,0.00) 23px 46px
+      rgba(11, 15, 25, 0.78),
+      rgba(11, 15, 25, 0.30) 45%,
+      rgba(11, 15, 25, 0.00)
     );
-  background-size:
-    100% 100%,
-    220% 100%,
-    180% 100%;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
-  animation: seamPulseTop 8s ease-in-out infinite, seamGridDrift 16s linear infinite;
 }
 
-/* Нижний переход секции */
 .section::after {
   bottom: 0;
   background:
-    /* базовое мягкое затемнение */
     linear-gradient(
       to top,
-      rgba(11, 15, 25, 0.66) 0%,
-      rgba(11, 15, 25, 0.20) 44%,
-      rgba(11, 15, 25, 0.00) 100%
-    ),
-    /* светящийся горизонтальный импульс */
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 225, 255, 0.00) 16%,
-      rgba(0, 225, 255, 0.10) 34%,
-      rgba(255, 191, 0, 0.14) 50%,
-      rgba(88, 161, 255, 0.16) 66%,
-      rgba(0, 225, 255, 0.00) 84%,
-      transparent 100%
-    ),
-    /* тонкая HUD-сетка */
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.00) 0 24px,
-      rgba(120, 220, 255, 0.05) 24px 25px,
-      rgba(255,255,255,0.00) 25px 48px
+      rgba(11, 15, 25, 0.82),
+      rgba(11, 15, 25, 0.32) 45%,
+      rgba(11, 15, 25, 0.00)
     );
-  background-size:
-    100% 100%,
-    240% 100%,
-    200% 100%;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
-  animation: seamPulseBottom 9s ease-in-out infinite, seamGridDrift 18s linear infinite reverse;
 }
+.section__bg {
+  position: absolute;
 
-/* Дополнительный крипто-слой на переходах: линии как график/канал */
-.section::before,
-.section::after {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 86%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 86%, transparent 100%);
-}
+  /* Фон выходит за пределы секции, чтобы скрыть стыки */
+  inset: -42px 0;
 
-.section::before {
-  box-shadow:
-    inset 0 18px 45px rgba(0, 170, 255, 0.05),
-    inset 0 -20px 45px rgba(0, 255, 170, 0.03);
-}
+  z-index: 0;
+  pointer-events: none;
 
-.section::after {
-  box-shadow:
-    inset 0 18px 45px rgba(255, 191, 0, 0.04),
-    inset 0 -20px 45px rgba(0, 170, 255, 0.05);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  filter: saturate(1.08) contrast(1.06) brightness(0.72);
+  transform: scale(1.03);
+  opacity: 0.95;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,0.92) 10%,
+    rgba(0,0,0,1) 20%,
+    rgba(0,0,0,1) 80%,
+    rgba(0,0,0,0.92) 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0,0,0,0.92) 10%,
+    rgba(0,0,0,1) 20%,
+    rgba(0,0,0,1) 80%,
+    rgba(0,0,0,0.92) 90%,
+    transparent 100%
+  );
 }
 
 /* Затемняющий и "киношный" оверлей поверх фоновой картинки */
@@ -620,7 +493,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.16;
+  opacity: 0.12;
   background-image:
     linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.10) 1px, transparent 1px);
@@ -633,22 +506,24 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 .section__bg--inside {
   background-image: url("assets/img/sections/inside-bg.png");
   background-position: center 42%;
-  filter: saturate(1.28) contrast(1.12) brightness(1.00);
-  opacity: 0.98;
+  filter: saturate(1.10) contrast(1.08) brightness(0.70);
 }
-
+#inside {
+  margin-top: -10px;
+  padding-top: 82px;
+}
 .section__bg--forwho {
   background-image: url("assets/img/sections/forwho-bg.png");
   background-position: center 44%;
-  filter: saturate(1.24) contrast(1.10) brightness(0.94);
-  opacity: 0.97;
+  filter: saturate(1.10) contrast(1.06) brightness(0.64);
+  opacity: 0.92;
 }
 
 .section__bg--why {
   background-image: url("assets/img/sections/why-bg.png");
   background-position: center 48%;
-  filter: saturate(1.30) contrast(1.12) brightness(0.92);
-  opacity: 0.98;
+  filter: saturate(1.16) contrast(1.08) brightness(0.60);
+  opacity: 0.94;
 }
 
 /* Чуть усилим читабельность текста на фоне */
@@ -670,7 +545,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   backdrop-filter: blur(12px);
 }
 .section--dark {
-  background: transparent;
+  background: rgba(7, 10, 18, 0.08);
   border-top: none;
   border-bottom: none;
 }
@@ -862,7 +737,7 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
       ),
       url("assets/img/hero/hero-main.png") center 35% / cover no-repeat;
 
-    filter: saturate(1.30) contrast(1.14) brightness(1.18);
+    filter: saturate(1.22) contrast(1.12) brightness(1.12);
   }
      .hero::after {
     height: 72px;
@@ -879,40 +754,39 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
   }
   .section::before,
   .section::after {
-    height: 82px;
+    height: 64px;
   }
-.section__bg {
-  inset: -40px 0;
-  transform: scale(1.09);
-  filter: saturate(1.18) contrast(1.08) brightness(0.78);
-  opacity: 0.98;
+  .section__bg {
+    inset: -28px 0;
+    transform: scale(1.07);
+    filter: saturate(1.06) contrast(1.04) brightness(0.50);
+    opacity: 0.92;
 
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0,0,0,0.84) 10%,
-    rgba(0,0,0,1) 20%,
-    rgba(0,0,0,1) 80%,
-    rgba(0,0,0,0.84) 90%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0,0,0,0.84) 10%,
-    rgba(0,0,0,1) 20%,
-    rgba(0,0,0,1) 80%,
-    rgba(0,0,0,0.84) 90%,
-    transparent 100%
-  );
-}
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.95) 12%,
+      rgba(0,0,0,1) 22%,
+      rgba(0,0,0,1) 78%,
+      rgba(0,0,0,0.95) 88%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.95) 12%,
+      rgba(0,0,0,1) 22%,
+      rgba(0,0,0,1) 78%,
+      rgba(0,0,0,0.95) 88%,
+      transparent 100%
+    );
+  }
 
   .section__bg::before {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0, 210, 255, 0.16), transparent 50%),
-    radial-gradient(circle at 78% 22%, rgba(0, 255, 170, 0.10), transparent 52%),
-    radial-gradient(circle at 70% 76%, rgba(255, 190, 65, 0.08), transparent 58%),
-    linear-gradient(180deg, rgba(6, 9, 18, 0.26), rgba(6, 9, 18, 0.56));
+    background:
+      radial-gradient(circle at 20% 20%, rgba(90, 130, 255, 0.14), transparent 48%),
+      radial-gradient(circle at 78% 22%, rgba(0, 220, 255, 0.08), transparent 50%),
+      linear-gradient(180deg, rgba(6, 9, 18, 0.62), rgba(6, 9, 18, 0.84));
   }
 
   .section__bg::after {
