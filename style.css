@@ -854,22 +854,36 @@ body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-4
 }
 /* ===== Иконки карточек (картинки вместо эмодзи) ===== */
 .card__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
   display: grid;
   place-items: center;
-  margin-bottom: 10px;
-  background: rgba(34, 158, 217, 0.08);
-  border: 1px solid rgba(34, 158, 217, 0.16);
-  box-shadow: inset 0 0 18px rgba(34, 158, 217, 0.08);
-  font-size: 0; /* скрывает влияние старого emoji-размера */
+  margin-bottom: 14px;
+
+  /* сдвиг, чтобы иконка чуть выходила за границы */
+  margin-top: -12px;
+  margin-left: -6px;
+
+  background: rgba(34, 158, 217, 0.16);
+  border: 1px solid rgba(34, 158, 217, 0.30);
+
+  box-shadow:
+    inset 0 0 24px rgba(34, 158, 217, 0.18),
+    0 0 22px rgba(34, 158, 217, 0.14),
+    0 8px 22px rgba(0, 0, 0, 0.22);
+
+  font-size: 0;
+  position: relative;
+  z-index: 3;
 }
 
 .card__icon-img {
-  width: 36px;
-  height: 36px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 4px 10px rgba(34, 158, 217, 0.22));
+  filter:
+    drop-shadow(0 0 8px rgba(80, 220, 255, 0.50))
+    drop-shadow(0 0 20px rgba(140, 90, 255, 0.32));
 }
